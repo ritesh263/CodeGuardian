@@ -24,3 +24,9 @@ async def close_mongo_connection() -> None:
         client = None
         database = None
 
+
+def get_database() -> AsyncIOMotorDatabase:
+    if database is None:
+        raise RuntimeError("MongoDB connection has not been initialized.")
+    return database
+
